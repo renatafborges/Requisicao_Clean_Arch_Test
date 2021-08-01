@@ -1,15 +1,17 @@
-package com.renata.projeto_integrador.presentation
+package com.renata.projeto_integrador.allmovies.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.renata.projeto_integrador.data.model.MovieResponse
-import com.renata.projeto_integrador.domain.usecase.MoviePopularUseCase
+import com.renata.projeto_integrador.allmovies.data.model.MovieResponse
+import com.renata.projeto_integrador.allmovies.domain.usecase.PopularMovieUseCase
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MoviePopularViewModel(): ViewModel() {
 
-    val moviePopularUseCase = MoviePopularUseCase()
+
+class PopularMovieViewModel(): ViewModel() {
+
+    val moviePopularUseCase = PopularMovieUseCase()
     val movieResult: MutableLiveData<MovieResponse> = MutableLiveData()
     val error: MutableLiveData<String> = MutableLiveData()
 
@@ -23,7 +25,7 @@ class MoviePopularViewModel(): ViewModel() {
                 },{
                     e -> error.value = e.message
                 }
-            ).dispose()
+            )
     }
 
 }

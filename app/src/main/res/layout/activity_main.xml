@@ -7,16 +7,17 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
 
-    <TextView
-        android:id="@+id/teste_api"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Texto"
-        android:textSize="@dimen/large"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="MissingConstraints" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/teste_api"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Texto"-->
+<!--        android:textSize="@dimen/large"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        tools:ignore="MissingConstraints"-->
+<!--        tools:layout_editor_absoluteY="-3dp" />-->
 
     <ImageButton
         android:id="@+id/submitSearch"
@@ -81,35 +82,12 @@
 
 
     <androidx.viewpager.widget.ViewPager
+        android:id="@+id/movieViewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
-
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rvGenre"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/tabLayout"-->
-<!--            tools:listitem="@layout/genre_item" />-->
-
-<!--        <androidx.recyclerview.widget.RecyclerView-->
-<!--            android:id="@+id/rvMovie"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:orientation="horizontal"-->
-<!--            app:layout_constraintBottom_toBottomOf=""-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintHorizontal_bias="0.0"-->
-<!--            app:layout_constraintStart_toStartOf="@id/rvGenre"-->
-<!--            app:layout_constraintTop_toBottomOf=""-->
-<!--            tools:listitem="@layout/movie_item" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

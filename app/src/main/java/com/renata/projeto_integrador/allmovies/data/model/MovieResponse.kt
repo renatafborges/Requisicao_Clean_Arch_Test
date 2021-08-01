@@ -1,6 +1,4 @@
-package com.renata.projeto_integrador.data.model
-
-import com.google.gson.annotations.SerializedName
+package com.renata.projeto_integrador.allmovies.data.model
 
 data class MovieResponse(
     val page: Int,
