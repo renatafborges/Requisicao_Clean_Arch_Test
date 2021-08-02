@@ -5,6 +5,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import androidx.constraintlayout.solver.LinearSystem
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +15,8 @@ import com.renata.projeto_integrador.R
 import com.renata.projeto_integrador.allmovies.data.model.Movie
 import com.renata.projeto_integrador.allmovies.presentation.adapter.MoviesAdapter
 import kotlinx.android.synthetic.main.fragment_all_movies.*
+import kotlinx.android.synthetic.main.movie_list_item.*
+
 
 class AllMoviesFragment : Fragment() {
 
@@ -27,7 +31,8 @@ class AllMoviesFragment : Fragment() {
 
         viewModel.getPopularMovies()
         viewModel.movieResult.observe(this, Observer{
-            txtAllMoviesFrag.text = it.results[0].title
+            titleMovie.text = it.results[0].title
+            txtVoteAverage.text = it.results[0].vote_average.toString()
 
         })
 
@@ -41,8 +46,9 @@ class AllMoviesFragment : Fragment() {
 
         // Add the following lines to create RecyclerView
         rvMovie = view.findViewById(R.id.rvMovie)
-        rvMovie.adapter = MoviesAdapter()
-        rvMovie.layoutManager = LinearLayoutManager(this)
+        rvMovie.hasFixedSize()
+        rvMovie.layoutManager = LinearLayoutManager (context)
+        rvMovie.adapter = MoviesAdapter
 
     }
 

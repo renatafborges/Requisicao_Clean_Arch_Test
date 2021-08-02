@@ -11,7 +11,4 @@ interface PopularMovieApi {
     @GET("movie/popular")
     fun getPopularMovie(@Query("api_key") apiKey: String) : Single<MovieResponse>
 
-//    @GET("movie/{movie_id}")
-//    fun getMovieDetail(@Path("movie_id") movieId: Int): Observable<MovieDetails>
-
 }

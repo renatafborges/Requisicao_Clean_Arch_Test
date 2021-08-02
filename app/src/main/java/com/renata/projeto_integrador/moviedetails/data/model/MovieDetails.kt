@@ -1,4 +1,4 @@
-package com.renata.projeto_integrador.allmovies.data.model
+package com.renata.projeto_integrador.moviedetails.data.model
 
 data class MovieDetails(
 
