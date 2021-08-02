@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.constraintlayout.solver.LinearSystem
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,40 +17,50 @@ import com.renata.projeto_integrador.allmovies.data.model.Movie
 import com.renata.projeto_integrador.allmovies.presentation.adapter.MoviesAdapter
 import kotlinx.android.synthetic.main.fragment_all_movies.*
 import kotlinx.android.synthetic.main.movie_list_item.*
+import retrofit2.Call
+import retrofit2.Response
 
 
 class AllMoviesFragment : Fragment() {
 
-    private lateinit var rvMovie : RecyclerView
+    private var layoutManager: RecyclerView.LayoutManager? = null
+    private var adapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>? = null
     private lateinit var moviesAdapter: MoviesAdapter
 
+    var movieList: MutableLiveData<List<Movie>> = MutableLiveData()
+    var list = mutableListOf<Movie>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        val viewModel = ViewModelProviders.of(this).get(PopularMovieViewModel::class.java)
-
-        viewModel.getPopularMovies()
-        viewModel.movieResult.observe(this, Observer{
-            titleMovie.text = it.results[0].title
-            txtVoteAverage.text = it.results[0].vote_average.toString()
-
-        })
-
-    }
 
     override fun onCreateView(inflater: LayoutInflater,
                               container: ViewGroup?,savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_all_movies, container, false)
-
-        // Add the following lines to create RecyclerView
-        rvMovie = view.findViewById(R.id.rvMovie)
-        rvMovie.hasFixedSize()
-        rvMovie.layoutManager = LinearLayoutManager (context)
-        rvMovie.adapter = MoviesAdapter
-
     }
 
+
+    //logica vai estar aqui, para não ficar repetindo na activity
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val rvMovies = view.findViewById<RecyclerView>(R.id.rvMovie)
+
+        rvMovie.apply {
+            // set a LinearLayoutManager to handle Android
+            // RecyclerView behavior
+            layoutManager = LinearLayoutManager(requireActivity())
+            // set the custom adapter to the RecyclerView
+            adapter = MoviesAdapter(list)
+
+        }
+
+        val viewModel = ViewModelProviders.of(this).get(PopularMovieViewModel::class.java)
+
+        viewModel.getPopularMovies()
+        viewModel.movieResult.observe(viewLifecycleOwner, Observer{
+//            titleMovie.text = it.results[0].title
+//            txtVoteAverage.text = it.results[0].vote_average.toString()
+
+        })
+    }
 }

@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 
 
 class ViewPagerAdapter(
+
     private val fragmentList: List<Fragment>,
     private val fragmentTitleList: List<String>,
     fragmentManager: FragmentManager): FragmentPagerAdapter(fragmentManager) {
