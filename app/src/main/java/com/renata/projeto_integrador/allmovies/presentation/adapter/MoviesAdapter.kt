@@ -13,13 +13,13 @@ import com.bumptech.glide.Glide
 import com.renata.projeto_integrador.R
 import com.renata.projeto_integrador.allmovies.data.model.Movie
 
-class MoviesAdapter(val results: List<Movie>): RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
+class MoviesAdapter(var results: MutableList<Movie>): RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     class MoviesViewHolder(view : View): RecyclerView.ViewHolder(view){
         var imgMovie: ImageView? = view.findViewById(R.id.imgMovie)
         var titleMovie: TextView? = view.findViewById(R.id.titleMovie)
         var rateMovie: TextView? = view.findViewById(R.id.txtVoteAverage)
-        var favBtn: ToggleButton? = view.findViewById(R.id.favIcon)
+//        var favBtn: ToggleButton? = view.findViewById(R.id.favIcon)
 
 //      fun onBind(movie: Movie) {
 //          imgMovie?.let {
@@ -28,6 +28,14 @@ class MoviesAdapter(val results: List<Movie>): RecyclerView.Adapter<MoviesAdapte
 //              )
 //           }
 //      }
+    }
+
+    fun updateList(newList: MutableList<Movie>) {
+        this.results.removeAll(results)
+        if (newList != null) {
+            this.results = newList
+        }
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {

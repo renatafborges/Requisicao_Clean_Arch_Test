@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val fragmentList = listOf<Fragment>(AllMoviesFragment(),FavoriteMoviesFragment())
-        val fragmentTitle = listOf<String>("All Test", "FavoriteTest")
+        val fragmentTitle = listOf<String>("All Movies", "Favorite Movies")
 
         val viewPagerAdapter = ViewPagerAdapter(
             fragmentManager = this.supportFragmentManager,
