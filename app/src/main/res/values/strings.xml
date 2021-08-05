@@ -6,6 +6,7 @@
     <string name="all_movies">All Movies</string>
     <string name="favorite_movies">Favorite</string>
     <string name="search_button">Search Button</string>
+    <string name="heart_icon_description">heart icon</string>
     <string name="movie_rating">81%</string>
     <string name="overview">Overview</string>
     <string name="user_score">User Score</string>
