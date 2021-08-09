@@ -16,13 +16,17 @@ import com.renata.projeto_integrador.allmovies.presentation.adapter.MoviesAdapte
 import com.renata.projeto_integrador.moviedetails.presentation.MovieDetailsActivity
 import kotlinx.android.synthetic.main.fragment_all_movies.*
 
-class AllMoviesFragment : Fragment() {
+class AllMoviesFragment : Fragment(), MovieListener {
+
 
     var list = mutableListOf<Movie>()
-    private val moviesAdapter = MoviesAdapter(list)
+    private lateinit var moviesAdapter : MoviesAdapter
+//    private lateinit var moviesAdapter: MoviesAdapter
 
-    override fun onCreateView(inflater: LayoutInflater,
-                              container: ViewGroup?,savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_all_movies, container, false)
     }
@@ -34,6 +38,9 @@ class AllMoviesFragment : Fragment() {
         val viewModel = ViewModelProviders.of(this).get(PopularMovieViewModel::class.java)
 //        rvMovie.layoutManager = LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
 
+        var list = mutableListOf<Movie>()
+        moviesAdapter = MoviesAdapter(listener = this, list)
+
         rvMovie.apply {
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior
@@ -43,19 +50,18 @@ class AllMoviesFragment : Fragment() {
         }
 
         viewModel.getPopularMovies()
-        viewModel.movieResult.observe(requireActivity(), Observer{
+        viewModel.movieResult.observe(requireActivity(), Observer {
             moviesAdapter.updateList(it.results)
-//            titleMovie.text = it.results[0].title
-//            txtVoteAverage.text = it.results[0].vote_average.toString()
+
         })
     }
 
+    override fun openMovieDetails(movieId: Int) {
+//       vou ter que invocar outra activity -> moviedetails
+    }
 
-//    fun openMovieDetails(movieId: Int){
-//        val intent = Intent(requireContext(), MovieDetailsActivity::class.java)
-//        intent.putExtra("MOVIE_ID", movieId)
-//        startActivity(intent)
-//    }
-
+    override fun onFavoriteClickedListener(movie: Movie) {
+        movie.isFavorite = !movie.isFavorite
+    }
 
 }

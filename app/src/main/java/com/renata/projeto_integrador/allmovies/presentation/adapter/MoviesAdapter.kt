@@ -2,6 +2,7 @@ package com.renata.projeto_integrador.allmovies.presentation.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,12 +17,14 @@ import com.bumptech.glide.Glide
 import com.renata.projeto_integrador.R
 import com.renata.projeto_integrador.allmovies.data.model.Movie
 import com.renata.projeto_integrador.allmovies.domain.usecase.POSTER_BASE_URL
+import com.renata.projeto_integrador.allmovies.presentation.MovieListener
 import com.squareup.picasso.Picasso
 
 //import com.renata.projeto_integrador.allmovies.presentation.MovieListener
 
 class MoviesAdapter(
-    var results: MutableList<Movie>): RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
+    val listener: MovieListener,
+    var results: MutableList<Movie> = mutableListOf()): RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     class MoviesViewHolder(view : View): RecyclerView.ViewHolder(view){
 
@@ -42,6 +45,11 @@ class MoviesAdapter(
         holder.titleMovie?.text = results[position].title
         holder.rateMovie?.text = results[position].vote_average.toString()
         Picasso.get().load(POSTER_BASE_URL + movie.poster_path).into(holder.imgMovie)
+        holder.favBtn?.isChecked = results[position].isFavorite
+        holder.favBtn?.setOnClickListener{
+            listener?.onFavoriteClickedListener(results[position])
+            Log.d("test", results[position].isFavorite.toString())
+        }
     }
 
     fun updateList(newList: MutableList<Movie>) {
@@ -55,8 +63,5 @@ class MoviesAdapter(
     override fun getItemCount(): Int {
         return results.size
     }
-
-
-
 
 }
