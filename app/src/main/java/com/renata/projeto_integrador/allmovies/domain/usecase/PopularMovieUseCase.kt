@@ -1,5 +1,6 @@
 package com.renata.projeto_integrador.allmovies.domain.usecase
 
+import com.renata.projeto_integrador.allmovies.data.model.Movie
 import com.renata.projeto_integrador.allmovies.data.model.MovieResponse
 import com.renata.projeto_integrador.allmovies.data.repository.MoviePopularRepository
 import io.reactivex.Single
@@ -13,7 +14,16 @@ class PopularMovieUseCase {
 //repository = dependencia
     val repository = MoviePopularRepository()
 
-    fun getPopularMovies(): Single<MovieResponse> {
+    fun getPopularMovies(): Single<List<Movie>> {
         return repository.getPopularMovies(API_KEY)
     }
+
+    fun getFavoritedMovies(): Single<List<Movie>> {
+        return repository.getFavoritedMovies()
+    }
+
+    fun update(movie: Movie) {
+        repository.update(movie)
+    }
+
 }

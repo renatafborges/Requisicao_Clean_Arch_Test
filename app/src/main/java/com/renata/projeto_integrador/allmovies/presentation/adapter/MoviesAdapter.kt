@@ -52,10 +52,10 @@ class MoviesAdapter(
         }
     }
 
-    fun updateList(newList: MutableList<Movie>) {
-        this.results.removeAll(results)
+    fun updateList(newList: List<Movie>) {
+        this.results.clear()
         if (newList != null) {
-            this.results = newList
+            this.results.addAll(newList)
         }
         notifyDataSetChanged()
     }
@@ -63,5 +63,4 @@ class MoviesAdapter(
     override fun getItemCount(): Int {
         return results.size
     }
-
 }

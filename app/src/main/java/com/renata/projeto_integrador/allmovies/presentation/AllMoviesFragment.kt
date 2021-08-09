@@ -1,12 +1,11 @@
 package com.renata.projeto_integrador.allmovies.presentation
 
-import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -51,7 +50,7 @@ class AllMoviesFragment : Fragment(), MovieListener {
 
         viewModel.getPopularMovies()
         viewModel.movieResult.observe(requireActivity(), Observer {
-            moviesAdapter.updateList(it.results)
+            moviesAdapter.updateList(it)
 
         })
     }
@@ -61,7 +60,9 @@ class AllMoviesFragment : Fragment(), MovieListener {
     }
 
     override fun onFavoriteClickedListener(movie: Movie) {
+        Log.d("On favorite movies", movie.toString())
         movie.isFavorite = !movie.isFavorite
+        val viewModel = ViewModelProviders.of(this).get(PopularMovieViewModel::class.java)
+        viewModel.update(movie)
     }
-
 }
