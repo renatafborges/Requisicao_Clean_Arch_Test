@@ -24,6 +24,7 @@ class FavoriteMoviesFragment : Fragment(), MovieListener {
     var list = mutableListOf<Movie>()
     private lateinit var moviesAdapter : MoviesAdapter
     private lateinit var viewModel: PopularMovieViewModel
+    val data = "Renata"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
