@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             fragmentList = fragmentList,
             fragmentTitleList = fragmentTitle
         )
-         movieViewPager.adapter = viewPagerAdapter
+        movieViewPager.adapter = viewPagerAdapter
         tabLayout.setupWithViewPager(movieViewPager)
 
 

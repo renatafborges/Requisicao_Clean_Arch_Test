@@ -11,7 +11,7 @@ const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w342"
 
 //injeção de dependencias
 class PopularMovieUseCase {
-//repository = dependencia
+    //repository = dependencia
     val repository = MoviePopularRepository()
 
     fun getPopularMovies(): Single<List<Movie>> {

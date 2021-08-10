@@ -17,4 +17,4 @@ class ViewPagerAdapter(
 
     override fun getPageTitle(position: Int) = fragmentTitleList[position]
 
-    }
+}

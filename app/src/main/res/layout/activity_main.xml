@@ -19,32 +19,32 @@
 <!--        tools:ignore="MissingConstraints"-->
 <!--        tools:layout_editor_absoluteY="-3dp" />-->
 
-    <ImageButton
-        android:id="@+id/submitSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="32dp"
-        android:layout_marginVertical="49dp"
-        android:background="@color/backgroundColor"
-        android:contentDescription="@string/search_button"
-        android:src="@drawable/icon_search"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageButton-->
+<!--        android:id="@+id/submitSearch"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginHorizontal="32dp"-->
+<!--        android:layout_marginVertical="49dp"-->
+<!--        android:background="@color/backgroundColor"-->
+<!--        android:contentDescription="@string/search_button"-->
+<!--        android:src="@drawable/icon_search"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
-    <EditText
-        android:id="@+id/searchMovie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="49dp"
-        android:autofillHints="no"
-        android:ems="16"
-        android:hint="@string/movie_search"
-        android:inputType="text"
-        android:textSize="@dimen/small"
-        app:layout_constraintStart_toEndOf="@+id/submitSearch"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <EditText-->
+<!--        android:id="@+id/searchMovie"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginVertical="40dp"-->
+<!--        android:layout_marginStart="16dp"-->
+<!--        android:layout_marginEnd="49dp"-->
+<!--        android:autofillHints="no"-->
+<!--        android:ems="16"-->
+<!--        android:hint="@string/movie_search"-->
+<!--        android:inputType="text"-->
+<!--        android:textSize="@dimen/small"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/submitSearch"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <FrameLayout
         android:id="@+id/frmContainer"

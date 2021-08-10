@@ -6,75 +6,39 @@
     android:layout_height="match_parent"
     android:background="@color/backgroundColor">
 
-<!--        <ImageButton-->
-<!--            android:id="@+id/submitSearch"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginHorizontal="32dp"-->
-<!--            android:layout_marginVertical="49dp"-->
-<!--            android:background="@color/backgroundColor"-->
-<!--            android:contentDescription="@string/search_button"-->
-<!--            android:src="@drawable/icon_search"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
 
-<!--        <EditText-->
-<!--            android:id="@+id/searchMovie"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginVertical="40dp"-->
-<!--            android:layout_marginStart="16dp"-->
-<!--            android:layout_marginEnd="49dp"-->
-<!--            android:autofillHints="no"-->
-<!--            android:ems="16"-->
-<!--            android:hint="@string/movie_search"-->
-<!--            android:inputType="text"-->
-<!--            android:textSize="@dimen/small"-->
-<!--            app:layout_constraintStart_toEndOf="@+id/submitSearch"-->
-<!--            app:layout_constraintTop_toTopOf="parent" />-->
+    <TextView
+        android:id="@+id/txtAllMoviesFrag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-<!--        <FrameLayout-->
-<!--            android:id="@+id/frmContainer"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="48dp"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@id/searchMovie" />-->
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="@+id/txtAllMoviesFrag">
 
-<!--        <com.google.android.material.tabs.TabLayout-->
-<!--            android:id="@+id/tabLayout"-->
-<!--            android:layout_width="397dp"-->
-<!--            android:layout_height="61dp"-->
-<!--            android:layout_marginTop="16dp"-->
-<!--            android:background="@color/backgroundColor"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/submitSearch"-->
-<!--            app:tabTextColor="@color/clickedButtonColor">-->
+        <ProgressBar
+            android:id="@+id/progress_bar_popular"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone" />
 
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/tabAllMovies"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/all_movies" />-->
-
-<!--            <com.google.android.material.tabs.TabItem-->
-<!--                android:id="@+id/tabFavMovies"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="@string/favorite_movies" />-->
-
-<!--        </com.google.android.material.tabs.TabLayout>-->
-
-
-        <androidx.viewpager.widget.ViewPager
+        <include
+            android:id="@+id/layout_system_failed"
+            layout="@layout/system_failed"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="parent" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+    </LinearLayout>
 
 <!--    <androidx.recyclerview.widget.RecyclerView-->
 <!--        android:id="@+id/rvGenre"-->
@@ -84,18 +48,16 @@
 <!--        app:layout_constraintBottom_toBottomOf="parent"-->
 <!--        app:layout_constraintEnd_toEndOf="parent"-->
 <!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="parent"-->
-<!--        tools:listitem="@layout/item_genre" />-->
+<!--           tools:listitem="@layout/item_genre" />-->
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/movie_list_item" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
