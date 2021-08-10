@@ -10,8 +10,5 @@ data class MovieDetails(
     val runtime: Int,
     val overview: String,
     var isFavorite: Boolean = false
-//    val adult: Boolean
-//    @SerializedName("genre_ids")
-//    val genreIds : List<Int>,
 
 )

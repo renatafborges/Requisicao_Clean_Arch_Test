@@ -42,9 +42,9 @@ class MoviesAdapter(
 
 
         holder.favBtn?.isChecked = results[position].isFavorite
-//        holder.favBtn?.setOnClickListener{
-//            listener?.onFavoriteClickedListener(results[position])
-//        }
+        holder.favBtn?.setOnClickListener{
+            listener?.onFavoriteClickedListener(results[position])
+        }
     }
 
     fun updateList(newList: List<Movie>) {

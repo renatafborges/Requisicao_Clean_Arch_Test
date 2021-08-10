@@ -1,6 +1,7 @@
 package com.renata.projeto_integrador.allmovies.data.repository
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.renata.projeto_integrador.allmovies.data.RetrofitService
 import com.renata.projeto_integrador.allmovies.data.model.Movie
 import com.renata.projeto_integrador.allmovies.data.model.MovieResponse
@@ -25,7 +26,7 @@ class MoviePopularRepository {
         }
     }
 
-    fun getFavoritedMovies(): Single<List<Movie>> {
+    fun getFavoritedMovies(): MutableLiveData<List<Movie>> {
         return movieDataBase.getFavoriteMovies()
     }
 

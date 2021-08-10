@@ -1,5 +1,6 @@
 package com.renata.projeto_integrador.allmovies.domain.usecase
 
+import androidx.lifecycle.MutableLiveData
 import com.renata.projeto_integrador.allmovies.data.model.Movie
 import com.renata.projeto_integrador.allmovies.data.model.MovieResponse
 import com.renata.projeto_integrador.allmovies.data.repository.MoviePopularRepository
@@ -18,7 +19,7 @@ class PopularMovieUseCase {
         return repository.getPopularMovies(API_KEY)
     }
 
-    fun getFavoritedMovies(): Single<List<Movie>> {
+    fun getFavoritedMovies(): MutableLiveData<List<Movie>> {
         return repository.getFavoritedMovies()
     }
 

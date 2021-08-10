@@ -64,10 +64,9 @@ class AllMoviesFragment : Fragment(), MovieListener {
         startActivity(intent)
     }
 
-//    override fun onFavoriteClickedListener(movie: Movie) {
-//        Log.d("On favorite movies", movie.toString())
-//        movie.isFavorite = !movie.isFavorite
-//        viewModel.update(movie)
-//    }
-
+    override fun onFavoriteClickedListener(movie: Movie) {
+        Log.d("On favorite movies", movie.toString())
+        movie.isFavorite = !movie.isFavorite
+        viewModel.update(movie)
+    }
 }

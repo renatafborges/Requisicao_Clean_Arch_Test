@@ -56,20 +56,6 @@
         app:layout_constraintStart_toEndOf="@+id/titleMovie"
         app:layout_constraintTop_toTopOf="@+id/titleMovie" />
 
-<!--    <ToggleButton-->
-<!--        android:id="@+id/favBtn"-->
-<!--        android:layout_width="@dimen/large"-->
-<!--        android:layout_height="@dimen/medium"-->
-<!--        android:layout_marginStart="@dimen/xsmall"-->
-<!--        android:background="@drawable/heart_button"-->
-<!--        android:checked="false"-->
-<!--        android:contentDescription="@string/heart_icon_description"-->
-<!--        android:text=""-->
-<!--        android:textOff=""-->
-<!--        android:textOn=""-->
-<!--        app:layout_constraintStart_toEndOf="@+id/titleMovie"-->
-<!--        app:layout_constraintTop_toTopOf="@+id/titleMovie" />-->
-
     <TextView
         android:id="@+id/txtVoteAverage"
         android:layout_width="wrap_content"

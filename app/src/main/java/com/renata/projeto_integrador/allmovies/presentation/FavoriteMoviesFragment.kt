@@ -1,9 +1,7 @@
-
 package com.renata.projeto_integrador.allmovies.presentation
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,12 +15,10 @@ import com.renata.projeto_integrador.allmovies.presentation.adapter.MoviesAdapte
 import com.renata.projeto_integrador.moviedetails.presentation.MoviesDetailsActivity
 import kotlinx.android.synthetic.main.fragment_all_movies.*
 
-
-//class FavoriteMoviesFragment : Fragment() {
 class FavoriteMoviesFragment : Fragment(), MovieListener {
 
     var list = mutableListOf<Movie>()
-    private lateinit var moviesAdapter : MoviesAdapter
+    private lateinit var moviesAdapter: MoviesAdapter
     private lateinit var viewModel: PopularMovieViewModel
     val data = "Renata"
 
@@ -44,11 +40,11 @@ class FavoriteMoviesFragment : Fragment(), MovieListener {
             // set a LinearLayoutManager to handle Android
             // RecyclerView behavior
             adapter = moviesAdapter
-            layoutManager = LinearLayoutManager(requireActivity())
+            layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL,false)
             // set the custom adapter to the RecyclerView
         }
 
-//        viewModel.getFavoritedMovies()
+        viewModel.getFavoritedMovies()
         viewModel.movieFavoriteResult.observe(viewLifecycleOwner, Observer {
             moviesAdapter.updateList(it)
         })
@@ -60,9 +56,9 @@ class FavoriteMoviesFragment : Fragment(), MovieListener {
         startActivity(intent)
     }
 
-//    override fun onFavoriteClickedListener(movie: Movie) {
-//        movie.isFavorite = !movie.isFavorite
-//        viewModel.update(movie)
-//    }
+    override fun onFavoriteClickedListener(movie: Movie) {
+        movie.isFavorite = !movie.isFavorite
+        viewModel.update(movie)
+    }
 
 }

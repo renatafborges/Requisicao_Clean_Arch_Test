@@ -17,9 +17,9 @@ class PopularMovieViewModel(): ViewModel() {
 
     fun getPopularMovies() {
         moviePopularUseCase.getPopularMovies()
-            .subscribeOn(Schedulers.io()) //define em qual thread vai fazer requisição
-            .observeOn(AndroidSchedulers.mainThread()) //para onde vai enviar
-            .subscribe( //vai ter o objeto de resposta
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
                 { movies ->
                     movieResult.value = movies
                 },{
@@ -28,9 +28,9 @@ class PopularMovieViewModel(): ViewModel() {
             )
     }
 
-//    fun getFavoritedMovies() {
-//        movieFavoriteResult = moviePopularUseCase.getFavoritedMovies()
-//    }
+    fun getFavoritedMovies() {
+        movieFavoriteResult = moviePopularUseCase.getFavoritedMovies()
+    }
 
     fun update(movie: Movie){
         moviePopularUseCase.update(movie)

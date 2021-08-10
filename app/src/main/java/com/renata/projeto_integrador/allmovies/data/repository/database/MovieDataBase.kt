@@ -1,26 +1,17 @@
 package com.renata.projeto_integrador.allmovies.data.repository.database
 
 import android.util.Log
+import androidx.lifecycle.MutableLiveData
 import com.renata.projeto_integrador.allmovies.data.model.Movie
-import com.renata.projeto_integrador.allmovies.data.model.MovieResponse
 import io.reactivex.Single
 
-
-//usar o resultado do favorito localmente para disponibilizar na fragment
 class MovieDataBase {
     private val movies = mutableListOf<Movie>()
-
+    private val favoriteMovies = MutableLiveData<List<Movie>>(mutableListOf())
 
     //buscar os filmes favoritados
-    fun getFavoriteMovies(): Single<List<Movie>> {
-        Log.d("buscando filmes favoritos", movies.filter {
-            it.isFavorite
-        }.size.toString())
-        return Single.create { emitter ->
-            emitter.onSuccess(movies.filter {
-                it.isFavorite
-            })
-        }
+    fun getFavoriteMovies(): MutableLiveData<List<Movie>> {
+        return favoriteMovies
     }
 
     fun getAllMovies(): Single<List<Movie>> {
@@ -55,6 +46,9 @@ class MovieDataBase {
         movies.remove(movieFinded)
         movies.add(movie)
         Log.d("movies", movies.size.toString())
-
+        var favorites = movies.filter{
+            it.isFavorite
+        }
+        favoriteMovies.value = favorites
     }
 }
