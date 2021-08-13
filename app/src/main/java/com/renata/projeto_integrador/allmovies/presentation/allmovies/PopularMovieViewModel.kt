@@ -1,4 +1,4 @@
-package com.renata.projeto_integrador.allmovies.presentation
+package com.renata.projeto_integrador.allmovies.presentation.allmovies
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -34,6 +34,5 @@ class PopularMovieViewModel(): ViewModel() {
 
     fun update(movie: Movie){
         moviePopularUseCase.update(movie)
-        Log.d("teste na view model", movie.toString())
     }
 }

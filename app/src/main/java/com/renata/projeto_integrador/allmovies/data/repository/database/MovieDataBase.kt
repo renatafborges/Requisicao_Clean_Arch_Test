@@ -9,7 +9,6 @@ class MovieDataBase {
     private val movies = mutableListOf<Movie>()
     private val favoriteMovies = MutableLiveData<List<Movie>>(mutableListOf())
 
-    //buscar os filmes favoritados
     fun getFavoriteMovies(): MutableLiveData<List<Movie>> {
         return favoriteMovies
     }
@@ -20,8 +19,6 @@ class MovieDataBase {
         }
     }
 
-
-    //adicionar o filme
     fun addMovie(movie: Movie) {
         Log.d("Quantidade filmes lista", movies.size.toString())
         val movieFinded = movies.find { it.id == movie.id }
@@ -30,7 +27,6 @@ class MovieDataBase {
         }
     }
 
-    //buscar o filme por id e disponibilizar
     fun findById(movie: Movie): Single<Movie> {
         val movieFinded = movies.find { it.id == movie.id }
         return Single.create { emitter ->
@@ -40,7 +36,6 @@ class MovieDataBase {
         }
     }
 
-    //atualizar o filme da lista (favoritado)
     fun updateMovie(movie: Movie) {
         val movieFinded = movies.find { it.id == movie.id }
         movies.remove(movieFinded)

@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import com.renata.projeto_integrador.allmovies.data.RetrofitService
 import com.renata.projeto_integrador.allmovies.data.model.Movie
-import com.renata.projeto_integrador.allmovies.data.model.MovieResponse
 import com.renata.projeto_integrador.allmovies.data.repository.database.MovieDataBase
 import io.reactivex.Single
 
@@ -13,7 +12,6 @@ class MoviePopularRepository {
     val movieDataBase = MovieDataBase()
 
     fun getPopularMovies(apiKey: String): Single<List<Movie>> {
-        //map->pega um resultado e transforma em outro
         return RetrofitService.SERVICE.getPopularMovie(apiKey).flatMap { movieResponseList ->
             movieDataBase
                 .getAllMovies()
@@ -26,6 +24,10 @@ class MoviePopularRepository {
         }
     }
 
+    fun getMovieDetails(movieId: Int, apiKey: String): Single<Movie> {
+        return RetrofitService.SERVICE.getMovieDetail(movieId, apiKey)
+    }
+
     fun getFavoritedMovies(): MutableLiveData<List<Movie>> {
         return movieDataBase.getFavoriteMovies()
     }
@@ -34,8 +36,6 @@ class MoviePopularRepository {
         Log.d("teste no repository", movie.toString())
         movieDataBase.updateMovie(movie)
     }
-
-
 }
 
 //TODO: entender melhor o funcionamento do map

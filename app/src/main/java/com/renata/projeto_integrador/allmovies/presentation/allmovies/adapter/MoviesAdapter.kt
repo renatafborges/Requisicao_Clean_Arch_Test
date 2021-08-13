@@ -1,4 +1,4 @@
-package com.renata.projeto_integrador.allmovies.presentation.adapter
+package com.renata.projeto_integrador.allmovies.presentation.allmovies.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.renata.projeto_integrador.R
 import com.renata.projeto_integrador.allmovies.data.model.Movie
 import com.renata.projeto_integrador.allmovies.domain.usecase.POSTER_BASE_URL
-import com.renata.projeto_integrador.allmovies.presentation.MovieListener
+import com.renata.projeto_integrador.allmovies.presentation.allmovies.MovieListener
 import com.squareup.picasso.Picasso
 
 class MoviesAdapter(
@@ -58,8 +58,4 @@ class MoviesAdapter(
     override fun getItemCount(): Int {
         return results.size
     }
-
-
-
-
 }

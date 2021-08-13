@@ -1,25 +1,26 @@
-package com.renata.projeto_integrador.moviedetails.presentation
+package com.renata.projeto_integrador.allmovies.presentation.moviedetails
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.renata.projeto_integrador.moviedetails.data.model.MovieDetails
-import com.renata.projeto_integrador.moviedetails.domain.MovieDetailsUseCase
+import com.renata.projeto_integrador.allmovies.data.model.Movie
+import com.renata.projeto_integrador.allmovies.domain.usecase.PopularMovieUseCase
+
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 
-class MovieDetailsViewModel() : ViewModel() {
+class MovieDetailsViewModel : ViewModel() {
 
-    val movieDetailsUseCase = MovieDetailsUseCase()
-    val movieResult: MutableLiveData<MovieDetails> = MutableLiveData()
+    val popularMovieUseCase = PopularMovieUseCase()
+    val movieDetailsResult: MutableLiveData<Movie> = MutableLiveData()
     val error: MutableLiveData<String> = MutableLiveData()
 
     fun getMovieDetails(movieId: Int) {
-        movieDetailsUseCase.getMovieDetails(movieId)
+        popularMovieUseCase.getMovieDetails(movieId)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 { movies ->
-                    movieResult.value = movies
+                    movieDetailsResult.value = movies
                 }, { e ->
                     error.value = e.message
                 }

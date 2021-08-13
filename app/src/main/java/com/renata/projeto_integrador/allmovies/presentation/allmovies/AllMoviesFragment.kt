@@ -1,4 +1,4 @@
-package com.renata.projeto_integrador.allmovies.presentation
+package com.renata.projeto_integrador.allmovies.presentation.allmovies
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,43 +9,45 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.renata.projeto_integrador.R
 import com.renata.projeto_integrador.allmovies.data.model.Movie
-import com.renata.projeto_integrador.allmovies.presentation.adapter.MoviesAdapter
-import com.renata.projeto_integrador.moviedetails.presentation.MoviesDetailsActivity
-import kotlinx.android.synthetic.main.fragment_all_movies.*
+import com.renata.projeto_integrador.allmovies.presentation.allmovies.adapter.MoviesAdapter
+import com.renata.projeto_integrador.allmovies.presentation.moviedetails.MoviesDetailsActivity
 
-class FavoriteMoviesFragment : Fragment(), MovieListener {
+const val MOVIE_ID = "movieId"
+
+class AllMoviesFragment : Fragment(), MovieListener {
 
     var list = mutableListOf<Movie>()
     private lateinit var moviesAdapter: MoviesAdapter
     private lateinit var viewModel: PopularMovieViewModel
-    val data = "Renata"
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_favorite_movies, container, false)
+        return inflater.inflate(R.layout.fragment_all_movies, container, false)
     }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         viewModel = ViewModelProvider(requireActivity()).get(PopularMovieViewModel::class.java)
 
+        var list = mutableListOf<Movie>()
         moviesAdapter = MoviesAdapter(listener = this, list)
 
+        val rvMovie = view.findViewById<RecyclerView>(R.id.rvMovie)
+
         rvMovie.apply {
-            // set a LinearLayoutManager to handle Android
-            // RecyclerView behavior
             adapter = moviesAdapter
-            layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL,false)
-            // set the custom adapter to the RecyclerView
+            layoutManager =
+                LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         }
 
-        viewModel.getFavoritedMovies()
-        viewModel.movieFavoriteResult.observe(viewLifecycleOwner, Observer {
+        viewModel.getPopularMovies()
+        viewModel.movieResult.observe(viewLifecycleOwner, Observer {
             moviesAdapter.updateList(it)
         })
     }
@@ -60,5 +62,4 @@ class FavoriteMoviesFragment : Fragment(), MovieListener {
         movie.isFavorite = !movie.isFavorite
         viewModel.update(movie)
     }
-
 }

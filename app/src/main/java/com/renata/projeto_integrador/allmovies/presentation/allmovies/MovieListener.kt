@@ -1,4 +1,4 @@
-package com.renata.projeto_integrador.allmovies.presentation
+package com.renata.projeto_integrador.allmovies.presentation.allmovies
 
 import com.renata.projeto_integrador.allmovies.data.model.Movie
 

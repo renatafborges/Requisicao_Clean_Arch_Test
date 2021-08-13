@@ -1,9 +1,8 @@
-package com.renata.projeto_integrador.allmovies.presentation.adapter
+package com.renata.projeto_integrador.allmovies.presentation.allmovies.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-
 
 class ViewPagerAdapter(
 

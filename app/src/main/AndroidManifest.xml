@@ -11,11 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Projeto_Integrador">
-        <activity android:name=".moviedetails.presentation.MoviesDetailsActivity">
+        <activity android:name=".allmovies.presentation.moviedetails.MoviesDetailsActivity">
 
         </activity>
 
-        <activity android:name=".allmovies.presentation.MainActivity">
+        <activity android:name=".allmovies.presentation.allmovies.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

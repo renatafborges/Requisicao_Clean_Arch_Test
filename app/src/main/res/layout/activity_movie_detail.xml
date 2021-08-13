@@ -61,25 +61,29 @@
     <TextView
         android:id="@+id/movieTitle"
         style="@style/movieTitle"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:maxWidth = "10sp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="@dimen/medium"
         android:text="@string/movie_title"
+        android:scrollHorizontally="true"
+        android:ellipsize="end"
+        android:maxLines="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="70dp"
-        android:layout_height="wrap_content"
-        android:elevation="@dimen/medium"
-        android:fontFamily="@font/lato_regular"
-        android:text="@string/movie_rating"
-        android:textColor="@color/movieInformation"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="@+id/ratingMovieInfoAct"
-        app:layout_constraintTop_toBottomOf="@+id/ratingMovieInfoAct" />
+<!--    <TextView-->
+<!--        android:id="@+id/textView3"-->
+<!--        android:layout_width="70dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:elevation="@dimen/medium"-->
+<!--        android:fontFamily="@font/lato_regular"-->
+<!--        android:text="@string/movie_rating"-->
+<!--        android:textColor="@color/movieInformation"-->
+<!--        android:textSize="12sp"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/ratingMovieInfoAct"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/ratingMovieInfoAct" />-->
 
     <ImageView
         android:id="@+id/starImg"
@@ -104,16 +108,16 @@
         app:layout_constraintStart_toStartOf="@+id/movieTitle"
         app:layout_constraintTop_toBottomOf="@+id/movieTitle" />
 
-    <TextView
-        android:id="@+id/ageRestriction"
-        style="@style/movieAdditionalInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/medium"
-        android:fontFamily="@font/lato_regular"
-        android:text="@string/age_restriction"
-        app:layout_constraintStart_toEndOf="@+id/movieYear"
-        app:layout_constraintTop_toTopOf="@+id/movieYear" />
+<!--    <TextView-->
+<!--        android:id="@+id/ageRestriction"-->
+<!--        style="@style/movieAdditionalInfo"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="@dimen/medium"-->
+<!--        android:fontFamily="@font/lato_regular"-->
+<!--        android:text="@string/age_restriction"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/movieYear"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/movieYear" />-->
 
     <TextView
         android:id="@+id/movieDuration"
@@ -123,8 +127,8 @@
         android:layout_marginStart="@dimen/medium"
         android:fontFamily="@font/lato_regular"
         android:text="@string/movie_duration"
-        app:layout_constraintStart_toEndOf="@+id/ageRestriction"
-        app:layout_constraintTop_toTopOf="@+id/ageRestriction" />
+        app:layout_constraintStart_toEndOf="@+id/movieYear"
+        app:layout_constraintTop_toTopOf="@+id/movieYear" />
 
     <ToggleButton
         android:id="@+id/favBtnMovieInfo"
@@ -173,26 +177,26 @@
         app:layout_constraintStart_toStartOf="@+id/txtViewOverview"
         app:layout_constraintTop_toBottomOf="@+id/txtViewOverview" />
 
-    <TextView
-        android:id="@+id/cast"
-        style="@style/movieTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/large"
-        android:text="@string/movie_cast"
-        android:textSize="20sp"
-        android:textStyle="normal"
-        app:layout_constraintStart_toStartOf="@+id/txtViewOverview"
-        app:layout_constraintTop_toBottomOf="@+id/movieSynopsis" />
+<!--    <TextView-->
+<!--        android:id="@+id/cast"-->
+<!--        style="@style/movieTitle"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/large"-->
+<!--        android:text="@string/movie_cast"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="normal"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/txtViewOverview"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/movieSynopsis" />-->
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/castRv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/xsmall"
-        app:layout_constraintStart_toStartOf="@id/cast"
-        app:layout_constraintTop_toBottomOf="@+id/cast"
-        tools:listitem="@layout/item_cast" />
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/castRv"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="@dimen/xsmall"-->
+<!--        app:layout_constraintStart_toStartOf="@id/cast"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/cast"-->
+<!--        tools:listitem="@layout/item_cast" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
