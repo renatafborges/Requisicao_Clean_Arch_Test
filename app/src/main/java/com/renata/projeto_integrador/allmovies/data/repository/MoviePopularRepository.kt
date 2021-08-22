@@ -16,8 +16,8 @@ class MoviePopularRepository {
             movieDataBase
                 .getAllMovies()
                 .map { favoriteMovieList ->
-                    movieResponseList.results.forEach { movieResponse ->
-                        movieDataBase.addMovie(movieResponse)
+                    movieResponseList.results.forEach { movieItem ->
+                        movieDataBase.addMovie(movieItem)
                     }
                     movieResponseList.results
                 }
@@ -33,7 +33,6 @@ class MoviePopularRepository {
     }
 
     fun update(movie: Movie){
-        Log.d("teste no repository", movie.toString())
         movieDataBase.updateMovie(movie)
     }
 }

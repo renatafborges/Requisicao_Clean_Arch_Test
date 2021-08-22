@@ -40,7 +40,6 @@ class MoviesAdapter(
             listener.openMovieDetails(movie.id)
         }
 
-
         holder.favBtn?.isChecked = results[position].isFavorite
         holder.favBtn?.setOnClickListener{
             listener?.onFavoriteClickedListener(results[position])

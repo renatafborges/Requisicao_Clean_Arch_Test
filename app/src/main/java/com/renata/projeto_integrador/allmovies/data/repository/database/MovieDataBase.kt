@@ -20,27 +20,25 @@ class MovieDataBase {
     }
 
     fun addMovie(movie: Movie) {
-        Log.d("Quantidade filmes lista", movies.size.toString())
         val movieFinded = movies.find { it.id == movie.id }
         if (movieFinded == null) {
             movies.add(movie)
         }
     }
 
-    fun findById(movie: Movie): Single<Movie> {
-        val movieFinded = movies.find { it.id == movie.id }
-        return Single.create { emitter ->
-            if (movieFinded != null) {
-                emitter.onSuccess(movieFinded)
-            }
-        }
-    }
+//    fun findById(movie: Movie): Single<Movie> {
+//        val movieFinded = movies.find { it.id == movie.id }
+//        return Single.create { emitter ->
+//            if (movieFinded != null) {
+//                emitter.onSuccess(movieFinded)
+//            }
+//        }
+//    }
 
     fun updateMovie(movie: Movie) {
         val movieFinded = movies.find { it.id == movie.id }
         movies.remove(movieFinded)
         movies.add(movie)
-        Log.d("movies", movies.size.toString())
         var favorites = movies.filter{
             it.isFavorite
         }
